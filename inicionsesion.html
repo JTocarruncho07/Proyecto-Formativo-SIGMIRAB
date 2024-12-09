@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inicio de Sesión</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+        .btn-naranja {
+            background-color: #fd7e14;
+            color: white;
+        }
+
+        .btn-naranja:hover {
+            background-color: #e96c0a;
+        }
+    </style>
+</head>
+<body style="background-color: #f8f9fa; height: 100vh; display: flex; justify-content: center; align-items: center;"><div class="navigation"><a class="nav-button" href="nuevaventa.html">Ir a nuevaventa</a><a class="nav-button" href="reporte.html">Ir a reporte</a><a class="nav-button" href="index.html">Ir a index</a><a class="nav-button" href="inicionsesion.html">Ir a inicionsesion</a></div><div class="navigation"><a class="nav-button" href="nuevaventa.html">Ir a nuevaventa</a><a class="nav-button" href="reporte.html">Ir a reporte</a><a class="nav-button" href="index.html">Ir a index</a><a class="nav-button" href="inicionsesion.html">Ir a inicionsesion</a></div>
+<div class="card shadow p-4" style="width: 350px;">
+<h3 class="text-center mb-4">Recebera Alto Blanco</h3>
+<form>
+<div class="mb-3">
+<label class="form-label" for="usuario">Usuario</label>
+<input class="form-control" id="usuario" placeholder="Ingresa tu usuario" type="text"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="contrasena">Contraseña</label>
+<input class="form-control" id="contrasena" placeholder="Ingresa tu contraseña" type="password"/>
+</div>
+<div class="form-check mb-3">
+<input class="form-check-input" id="recordarme" type="checkbox"/>
+<label class="form-check-label" for="recordarme">Recordar mi usuario</label>
+</div>
+<button class="btn btn-naranja w-100" type="submit">Iniciar Sesión</button>
+</form>
+<div class="text-center mt-3">
+<a class="text-decoration-none text-muted" href="#">¿Olvidaste tu contraseña?</a>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

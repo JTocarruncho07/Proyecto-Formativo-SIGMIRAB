@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Registrar Nueva Venta</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+        .btn-naranja {
+            background-color: #fd7e14;
+            color: white;
+        }
+
+        .btn-naranja:hover {
+            background-color: #e96c0a;
+        }
+    </style>
+</head>
+<body><div class="navigation"><a class="nav-button" href="nuevaventa.html">Ir a nuevaventa</a><a class="nav-button" href="reporte.html">Ir a reporte</a><a class="nav-button" href="index.html">Ir a index</a><a class="nav-button" href="inicionsesion.html">Ir a inicionsesion</a></div><div class="navigation"><a class="nav-button" href="nuevaventa.html">Ir a nuevaventa</a><a class="nav-button" href="reporte.html">Ir a reporte</a><a class="nav-button" href="index.html">Ir a index</a><a class="nav-button" href="inicionsesion.html">Ir a inicionsesion</a></div>
+<div class="container mt-4">
+<h2 class="text-center">Registrar Nueva Venta</h2>
+<form action="procesar_venta.php" method="post">
+<div class="row">
+<!-- Primera columna -->
+<div class="col-md-6">
+<div class="form-group">
+<label for="cliente">Nombre del Cliente:</label>
+<input class="form-control" id="cliente" name="cliente" placeholder="Ingrese el nombre del cliente" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="material">Tipo de Material:</label>
+<select class="form-control" id="material" name="material" required="">
+<option value="">Seleccionar...</option>
+<option value="recebo_fino">Recebo Fino</option>
+<option value="recebo_grueso">Recebo Grueso</option>
+</select>
+</div>
+<div class="form-group">
+<label for="cantidad">Cantidad (en metros cúbicos):</label>
+<input class="form-control" id="cantidad" min="1" name="cantidad" placeholder="Ingrese la cantidad" required="" type="number"/>
+</div>
+</div>
+<!-- Segunda columna -->
+<div class="col-md-6">
+<div class="form-group">
+<label for="valor_metro">Valor por Metro Cúbico:</label>
+<input class="form-control" id="valor_metro" min="0" name="valor_metro" placeholder="Ingrese el valor por metro cúbico" required="" type="number"/>
+</div>
+<div class="form-group">
+<label for="descuento">¿Hubo Descuento?</label>
+<select class="form-control" id="descuento" name="descuento" required="">
+<option value="">Seleccionar...</option>
+<option value="si">Sí</option>
+<option value="no">No</option>
+</select>
+</div>
+<div class="form-group">
+<label for="tipo_descuento">Tipo de Descuento:</label>
+<select class="form-control" id="tipo_descuento" name="tipo_descuento">
+<option value="">Seleccionar...</option>
+<option value="descuento_un_metro">Descuento de un metro</option>
+<option value="descuento_por_metro">Descuento por metro</option>
+</select>
+</div>
+</div>
+</div>
+<div class="text-center mt-4">
+<button class="btn btn-naranja btn-lg w-100" type="submit">Registrar Venta</button>
+</div>
+</form>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

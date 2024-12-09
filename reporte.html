@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Generar Reporte</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+        .btn-naranja {
+            background-color: #FFA500; /* Color naranja */
+            color: white;
+        }
+        .btn-naranja:hover {
+            background-color: #ff8c00; /* Un tono más oscuro de naranja al pasar el cursor */
+            color: white;
+        }
+        .opciones-reporte {
+            display: none;
+        }
+    </style>
+</head>
+<body><div class="navigation"><a class="nav-button" href="nuevaventa.html">Ir a nuevaventa</a><a class="nav-button" href="reporte.html">Ir a reporte</a><a class="nav-button" href="index.html">Ir a index</a><a class="nav-button" href="inicionsesion.html">Ir a inicionsesion</a></div><div class="navigation"><a class="nav-button" href="nuevaventa.html">Ir a nuevaventa</a><a class="nav-button" href="reporte.html">Ir a reporte</a><a class="nav-button" href="index.html">Ir a index</a><a class="nav-button" href="inicionsesion.html">Ir a inicionsesion</a></div>
+<div class="container mt-4">
+<h2 class="text-center">Generar Reporte</h2>
+<form action="generar_reporte.php" id="formReporte" method="post">
+<div class="form-group">
+<label for="tipo_reporte">¿Cómo deseas generar el reporte?</label>
+<select class="form-control" id="tipo_reporte" name="tipo_reporte" onchange="mostrarCampos()">
+<option value="">Seleccionar...</option>
+<option value="anio">Por Años</option>
+<option value="mes_ano">Por Meses y Años</option>
+<option value="dia">Por Días</option>
+<option value="hora">Por Horas</option>
+<option value="anio_mes">Por Año y Mes</option>
+<option value="hora_rango">Por Rango de Horas</option>
+</select>
+</div>
+<!-- Opciones para generar el reporte por Años -->
+<div class="opciones-reporte" id="opciones_anio">
+<div class="form-group">
+<label for="rango_ano">Seleccione los Años:</label>
+<input class="form-control" id="rango_ano" name="rango_ano" placeholder="Ejemplo: 2022, 2023" type="text"/>
+<small>Ingrese varios años separados por coma (ejemplo: 2022, 2023)</small>
+</div>
+</div>
+<!-- Opciones para generar el reporte por Meses y Años -->
+<div class="opciones-reporte" id="opciones_mes_ano">
+<div class="form-group">
+<label for="rango_mes_ano">Seleccione Meses y Años:</label>
+<input class="form-control" id="rango_mes_ano" name="rango_mes_ano" placeholder="Ejemplo: 05/2023, 12/2022" type="text"/>
+<small>Ingrese varios meses con su año, separados por coma (ejemplo: 05/2023, 12/2022)</small>
+</div>
+</div>
+<!-- Opciones para generar el reporte por Días -->
+<div class="opciones-reporte" id="opciones_dia">
+<div class="form-group">
+<label for="rango_dia">Seleccione Días:</label>
+<input class="form-control" id="rango_dia" name="rango_dia" placeholder="Ejemplo: 05/15, 06/20" type="text"/>
+<small>Ingrese varios días con mes y día, separados por coma (ejemplo: 05/15, 06/20)</small>
+</div>
+</div>
+<!-- Opciones para generar el reporte por Hora -->
+<div class="opciones-reporte" id="opciones_hora">
+<div class="form-group">
+<label for="hora_especifica">Seleccione Horas:</label>
+<input class="form-control" id="hora_especifica" name="hora_especifica" placeholder="Ejemplo: 10:00, 15:30" type="text"/>
+<small>Ingrese varias horas separadas por coma (ejemplo: 10:00, 15:30)</small>
+</div>
+</div>
+<!-- Opciones para generar el reporte por Año y Mes -->
+<div class="opciones-reporte" id="opciones_anio_mes">
+<div class="form-group">
+<label for="anio_especifico">Seleccione un Año:</label>
+<select class="form-control" id="anio_especifico" name="anio_especifico">
+<option value="">Seleccionar...</option>
+<option value="2023">2023</option>
+<option value="2022">2022</option>
+<option value="2021">2021</option>
+<option value="2020">2020</option>
+</select>
+</div>
+<div class="form-group">
+<label for="mes_especifico">Seleccione un Mes:</label>
+<select class="form-control" id="mes_especifico" name="mes_especifico">
+<option value="">Seleccionar...</option>
+<option value="01">Enero</option>
+<option value="02">Febrero</option>
+<option value="03">Marzo</option>
+<option value="04">Abril</option>
+<option value="05">Mayo</option>
+<option value="06">Junio</option>
+<option value="07">Julio</option>
+<option value="08">Agosto</option>
+<option value="09">Septiembre</option>
+<option value="10">Octubre</option>
+<option value="11">Noviembre</option>
+<option value="12">Diciembre</option>
+</select>
+</div>
+</div>
+<!-- Opciones para generar el reporte por Rango de Horas -->
+<div class="opciones-reporte" id="opciones_hora_rango">
+<div class="form-group">
+<label for="hora_rango">Seleccione un Rango de Horas:</label>
+<input class="form-control" id="hora_rango" name="hora_rango" placeholder="Ejemplo: 09:00-12:00" type="text"/>
+<small>Ingrese un rango de horas (ejemplo: 09:00-12:00)</small>
+</div>
+</div>
+<div class="text-center mt-4">
+<button class="btn btn-naranja btn-lg w-100" type="submit">Generar Reporte</button>
+</div>
+</form>
+</div>
+<script>
+        function mostrarCampos() {
+            // Ocultar todas las opciones
+            let opciones = document.querySelectorAll('.opciones-reporte');
+            opciones.forEach(function(opcion) {
+                opcion.style.display = 'none';
+            });
+
+            // Mostrar la opción seleccionada
+            const tipoReporte = document.getElementById('tipo_reporte').value;
+            if (tipoReporte) {
+                document.getElementById('opciones_' + tipoReporte).style.display = 'block';
+            }
+        }
+    </script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
